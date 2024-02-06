@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { AppHeader } from '@/widgets/app-header';
+import { ApolloProvider } from './_providers';
+import Minetruck from '@/entities/minetruck';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +21,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <AntdRegistry>{children}</AntdRegistry>
+                <ApolloProvider>
+                    <AntdRegistry>
+                        <AppHeader variant={'public'} />
+                        <Minetruck></Minetruck>
+                    </AntdRegistry>
+                </ApolloProvider>
             </body>
         </html>
     );
