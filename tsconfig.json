@@ -27,6 +27,8 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         "src/app/dataSource.ts",
+        "tailwind.config.js",
+        "next.config.ts",
     ],
     "exclude": ["node_modules"],
 }

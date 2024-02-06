@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { AntdRegistry } from '@ant-design/nextjs-registry';
-import { AppHeader } from '@/widgets/app-header';
-import { ApolloProvider } from './_providers';
-import Minetruck from '@/entities/minetruck';
+import { AppProvider } from './_providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,14 +16,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="ru">
             <body className={inter.className}>
-                <ApolloProvider>
-                    <AntdRegistry>
-                        <AppHeader variant={'public'} />
-                        <Minetruck></Minetruck>
-                    </AntdRegistry>
-                </ApolloProvider>
+                <AppProvider>{children}</AppProvider>
             </body>
         </html>
     );
