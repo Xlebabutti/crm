@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+import { DocumentNode } from 'graphql';
 
 export const GET_MINETRUSKS = gql`
     query {
