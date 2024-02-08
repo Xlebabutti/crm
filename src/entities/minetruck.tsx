@@ -1,53 +1,63 @@
-'use client';
+// import { GetServerSideProps } from 'next';
+// import {
+//     GetMinetrucksDocument,
+//     GetMinetrucksQuery,
+//     Minetruck,
+// } from './interface';
+// import { initializeApollo } from './apolloClient';
 
-import { GET_MINETRUSKS } from '@/graphql/queries';
-import { useQuery } from '@apollo/client';
-import { useEffect, useState } from 'react';
+// interface MinetrucksProps {
+//     minetrucks: GetMinetrucksQuery['minetrucks'];
+// }
 
-interface MinetruckEdge {
-    node: Minetruck;
-}
+// interface TableRowProps {
+//     minetruck: Minetruck;
+// }
 
-interface Minetruck {
-    uuid: string;
-    name: string;
-    tonnage: number;
-    make: string;
-}
+// const TableRow = ({ minetruck }: TableRowProps) => {
+//     return (
+//         <tr>
+//             <td>{minetruck.name}</td>
+//             <td>{minetruck.tonnage}</td>
+//             <td>{minetruck.make}</td>
+//         </tr>
+//     );
+// };
 
-interface MinetrucksQuery {
-    minetrucks: {
-        edges: MinetruckEdge[];
-    };
-}
+// function Minetrucks({ minetrucks }: MinetrucksProps) {
+//     return (
+//         <table>
+//             <thead>
+//                 <tr>
+//                     <th>Name</th>
+//                     <th>Tonnage</th>
+//                     <th>Make</th>
+//                 </tr>
+//             </thead>
+//             <tbody>
+//                 {minetrucks?.edges.map(({ node }) => (
+//                     <TableRow key={node.uuid} minetruck={node} />
+//                 ))}
+//             </tbody>
+//         </table>
+//     );
+// }
 
-const Minetruck = () => {
-    const { loading, error, data } = useQuery<MinetrucksQuery>(GET_MINETRUSKS);
+// export const getServerSideProps: GetServerSideProps<
+//     MinetrucksProps
+// > = async () => {
+//     const apolloClient = initializeApollo();
 
-    const [cars, setCar] = useState([]);
+//     const { data } = await apolloClient.query({
+//         query: GetMinetrucksDocument,
+//     });
+//     console.log('asdad', data);
+//     return {
+//         props: {
+//             initialApolloState: apolloClient.cache.extract(),
+//             minetrucks: data.minetrucks,
+//         },
+//     };
+// };
 
-    // console.log(data);
-    // useEffect(() => {
-    //     const fetchedVehicles = data?.minetrucks?.edges || [];
-    //     setCar(fetchedVehicles);
-    // }, [data]);
-
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :(</p>;
-
-    // if (!data) return <p>Error :(</p>;
-
-    return (
-        <div>
-            {data?.minetrucks.edges.map(({ node }) => (
-                <div key={node.uuid}>
-                    <h2>{node.name}</h2>
-                    <p>Tonnage: {node.tonnage}</p>
-                    <p>Make: {node.make}</p>
-                </div>
-            ))}
-        </div>
-    );
-};
-
-export default Minetruck;
+// export default Minetrucks;
