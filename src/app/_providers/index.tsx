@@ -1,7 +1,7 @@
 'use client';
 
 import { ComposeChildren } from '@/shared/lib/react';
-import { queryClient } from "@/shared/api/query-client";
+import { queryClient } from '@/shared/api/query-client';
 import { ThemeProvider } from './theme-provider';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { AppSessionProvider } from '@/entities/user/session';
@@ -12,7 +12,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         <ComposeChildren>
             <AppSessionProvider />
             <QueryClientProvider client={queryClient} />
-            <ThemeProvider/>
+            <ThemeProvider />
             {children}
         </ComposeChildren>
     );

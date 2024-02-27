@@ -1,5 +1,5 @@
-import { Profile } from "../_domain/types";
+import { Profile } from '../_domain/types';
 
 export const getProfileDisplayName = (profile: Profile) => {
-  return profile.name ? profile.name : profile.email;
+    return profile.name ? profile.name : profile.email;
 };

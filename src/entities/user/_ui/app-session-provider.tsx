@@ -1,9 +1,9 @@
-import { SessionProvider as NextAuthSessionProvider } from "next-auth/react";
+import { SessionProvider as NextAuthSessionProvider } from 'next-auth/react';
 
 export function AppSessionProvider({
-  children,
+    children,
 }: {
-  children?: React.ReactNode;
+    children?: React.ReactNode;
 }) {
-  return <NextAuthSessionProvider>{children}</NextAuthSessionProvider>;
+    return <NextAuthSessionProvider>{children}</NextAuthSessionProvider>;
 }

@@ -12,7 +12,7 @@ export interface Minetruck {
     make: string;
 }
 
-export interface MinetrucksQuery { 
+export interface MinetrucksQuery {
     minetrucks: {
         edges: MinetruckEdge[];
     };
