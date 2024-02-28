@@ -7,6 +7,7 @@ import EmailProvider from 'next-auth/providers/email';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import { createUserUseCase } from './_use-cases/create-user';
+import { allowedNodeEnvironmentFlags } from 'process';
 
 const prismaAdapter = PrismaAdapter(dbClient);
 
@@ -61,12 +62,14 @@ export const nextAuthConfig: AuthOptions = {
             GithubProvider({
                 clientId: privateConfig.GITHUB_ID,
                 clientSecret: privateConfig.GITHUB_SECRET,
+                allowDangerousEmailAccountLinking: true,
             }),
         privateConfig.GOOGLE_ID &&
             privateConfig.GOOGLE_SECRET &&
             GoogleProvider({
                 clientId: privateConfig.GOOGLE_ID,
                 clientSecret: privateConfig.GOOGLE_SECRET,
+                allowDangerousEmailAccountLinking: true,
             }),
     ]),
 };
