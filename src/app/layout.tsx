@@ -5,8 +5,8 @@ import { Inter as FontSans } from 'next/font/google';
 import { cn } from '@/shared/ui/utils';
 
 export const metadata: Metadata = {
-    title: 'extremum',
-    description: 'extremum dev area',
+    title: 'ginj.online',
+    description: '',
 };
 
 const fontSans = FontSans({

@@ -1,6 +1,7 @@
 import { AuthOptions } from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 import EmailProvider from 'next-auth/providers/email';
+import GoogleProvider from 'next-auth/providers/google';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { dbClient } from '@/shared/lib/db';
 import { compact } from 'lodash-es';
@@ -59,6 +60,12 @@ export const nextAuthConfig: AuthOptions = {
             GithubProvider({
                 clientId: privateConfig.GITHUB_ID,
                 clientSecret: privateConfig.GITHUB_SECRET,
+            }),
+        privateConfig.GOOGLE_ID &&
+            privateConfig.GOOGLE_SECRET &&
+            GoogleProvider({
+                clientId: privateConfig.GOOGLE_ID,
+                clientSecret: privateConfig.GOOGLE_SECRET,
             }),
     ]),
 };

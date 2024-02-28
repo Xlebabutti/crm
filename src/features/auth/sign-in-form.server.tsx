@@ -10,10 +10,11 @@ import { TestEmailSignInForm } from './_ui/test-email-sign-in-form';
 
 export async function SignInForm({ className }: { className?: string }) {
     const providers = await getProviders();
+
     const oauthProviders = Object.values(providers ?? {}).filter(
         (provider) => provider.type === 'oauth',
     );
-
+    console.log(oauthProviders, '""""""""""""""""');
     const testToken = privateConfig.TEST_EMAIL_TOKEN;
 
     return (

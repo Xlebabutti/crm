@@ -13,6 +13,8 @@ const resultSchema = z.object({
 export const uploadAvatarAction = async (formData: FormData) => {
     const file = formData.get(AVATAR_FILE_KEY);
 
+    console.log(file, 'file console');
+
     if (!(file instanceof File)) {
         throw new BadRequest();
     }
