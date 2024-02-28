@@ -41,6 +41,7 @@ export const nextAuthConfig: AuthOptions = {
         signIn: '/auth/sign-in',
         newUser: '/auth/new-user',
         verifyRequest: '/auth/verify-request',
+        error: '/auth/error',
     },
     providers: compact([
         EmailProvider({

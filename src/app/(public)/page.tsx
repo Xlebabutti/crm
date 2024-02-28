@@ -1,9 +1,9 @@
 export default async function Home() {
     return (
-        <main className="">
+        <main>
             <section
                 id="hero"
-                className="bg-cover bg-center h-screen"
+                className="bg-cover bg-center h-[calc(100vh-57px)]"
                 style={{ backgroundImage: `url('/path/to/hero-image.jpg')` }}
             >
                 <div className="container mx-auto flex justify-center items-center h-full">
