@@ -10,7 +10,7 @@ import { TestEmailSignInForm } from './_ui/test-email-sign-in-form';
 
 export async function SignInForm({ className }: { className?: string }) {
     const providers = await getProviders();
-
+    console.log(providers?.google, '""""""""""""""""1');
     const oauthProviders = Object.values(providers ?? {}).filter(
         (provider) => provider.type === 'oauth',
     );

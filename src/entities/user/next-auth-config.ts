@@ -1,11 +1,11 @@
-import { AuthOptions } from 'next-auth';
-import GithubProvider from 'next-auth/providers/github';
-import EmailProvider from 'next-auth/providers/email';
-import GoogleProvider from 'next-auth/providers/google';
-import { PrismaAdapter } from '@auth/prisma-adapter';
-import { dbClient } from '@/shared/lib/db';
-import { compact } from 'lodash-es';
 import { privateConfig } from '@/shared/config/private';
+import { dbClient } from '@/shared/lib/db';
+import { PrismaAdapter } from '@auth/prisma-adapter';
+import { compact } from 'lodash-es';
+import { AuthOptions } from 'next-auth';
+import EmailProvider from 'next-auth/providers/email';
+import GithubProvider from 'next-auth/providers/github';
+import GoogleProvider from 'next-auth/providers/google';
 import { createUserUseCase } from './_use-cases/create-user';
 
 const prismaAdapter = PrismaAdapter(dbClient);
