@@ -23,6 +23,8 @@ export default function AuthorizedGuard({
     const isLoading =
         session.status === 'loading' || session.status === 'unauthenticated';
 
+    console.log(session);
+
     return (
         <>
             <FullPageSpinner isLoading={isLoading} />
