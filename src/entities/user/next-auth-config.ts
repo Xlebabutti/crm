@@ -7,7 +7,6 @@ import EmailProvider from 'next-auth/providers/email';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import { createUserUseCase } from './_use-cases/create-user';
-import { allowedNodeEnvironmentFlags } from 'process';
 
 const prismaAdapter = PrismaAdapter(dbClient);
 
